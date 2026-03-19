@@ -2,7 +2,7 @@
 
 Arcade hack for **Ghosts'n Goblins** / **Makaimura** that replaces Arthur with **Artoria** in two variants: **Maiden Edition** and **Knight Edition**.
 
-**v1.1** · by [GoodLuckTrying](https://github.com/GoodLuckTrying) & [Poody](https://twitter.com/hetagaki_poody)
+**v1.2** · by [GoodLuckTrying](https://github.com/GoodLuckTrying) & [Poody](https://twitter.com/hetagaki_poody)
 
 ---
 
