@@ -6,6 +6,9 @@ Arcade hack for **Ghosts'n Goblins** / **Makaimura** that replaces Arthur with *
 
 ---
 
+## Version 1.2 changes
+- Added credits & versioning to titlescreen.
+
 ## Version 1.1 changes
 
 - Added **gng** (new ROM discovered, using capsom mask roms) and **gngb** (formerly known as "gnga") to the patcher.

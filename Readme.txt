@@ -2,6 +2,9 @@ Ghosts 'n Goblins/Makaimura - Knight/Maiden Artoria Edition v1.1 - by GoodLuckTr
 
 This is a Ghosts'n Goblins/Makaimura sprite hack that changes Arthur’s sprites into those of a Maiden/Knight, Artoria.
 
+Version 1.2 Changes:
+- Added credits & versioning to titlescreen.
+
 Version 1.1 Changes:
 - Added gngnew (New rom discovered, now known as "gng") and gngb (Known as "gnga" until now) to the patcher.
 - For these 2, you'll have to use romdata for FB Neo or Side Load into MAME.
