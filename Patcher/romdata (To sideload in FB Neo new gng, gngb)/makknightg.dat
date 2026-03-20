@@ -1,0 +1,27 @@
+// RomData template for FinalBurn Neo
+
+// The *** in the ZipName field cannot be empty and cannot be duplicated with DrvName
+ZipName: makknightg
+DrvName: makknight
+FullName: "Makaimura - Knight Artoria Edition (Japan revision G)"
+
+// Name		Len		Crc32		Type
+"mj04gknight.bin",	0x00004000,	0x041f73b2,	0x01100000
+"mj03g.bin",	0x00008000,	0x61b043bb,	0x01100000
+"mj05gknight.bin",	0x00008000,	0x3d9abc4a,	0x01100000
+"gg2.bin",	0x00008000,	0x615f5b6f,	0x01100000
+"gg1knight.bin",	0x00004000,	0xc12dd3e3,	0x00200000
+"gg11.bin",	0x00004000,	0xddd56fa9,	0x00200000
+"gg10.bin",	0x00004000,	0x7302529d,	0x00200000
+"gg9.bin",	0x00004000,	0x20035bda,	0x00200000
+"gg8.bin",	0x00004000,	0xf12ba271,	0x00200000
+"gg7.bin",	0x00004000,	0xe525207d,	0x00200000
+"gg6.bin",	0x00004000,	0x2d77e9b2,	0x00200000
+"gng13knight.n4",	0x00004000,	0xa0713571,	0x00200000
+"gg16knight.bin",	0x00004000,	0x5b0a5995,	0x00200000
+"gg15knight.bin",	0x00004000,	0x4b9933df,	0x00200000
+"gng16knight.l4",	0x00004000,	0x01d9a306,	0x00200000
+"gg13knight.bin",	0x00004000,	0x75211c8b,	0x00200000
+"gg12knight.bin",	0x00004000,	0x7c6e8878,	0x00200000
+"tbp24s10.14k",	0x00000100,	0x0eaf5158,	0x08200000
+"63s141.2e",	0x00000100,	0x4a1285a4,	0x08200000

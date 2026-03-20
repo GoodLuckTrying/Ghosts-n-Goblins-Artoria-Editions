@@ -1,9 +1,10 @@
-Ghosts 'n Goblins/Makaimura - Knight/Maiden Artoria Edition v1.1 - by GoodLuckTrying (https://github.com/GoodLuckTrying) & Poody (https://twitter.com/hetagaki_poody)
+Ghosts 'n Goblins/Makaimura - Knight/Maiden Artoria Edition v1.2 - by GoodLuckTrying (https://github.com/GoodLuckTrying) & Poody (https://twitter.com/hetagaki_poody)
 
 This is a Ghosts'n Goblins/Makaimura sprite hack that changes Arthur’s sprites into those of a Maiden/Knight, Artoria.
 
 Version 1.2 Changes:
 - Added credits & versioning to titlescreen.
+- Added romdata support to: gngc, gngt, makaimurb, makaimurc, makaimurg
 
 Version 1.1 Changes:
 - Added gngnew (New rom discovered, now known as "gng") and gngb (Known as "gnga" until now) to the patcher.
@@ -34,18 +35,35 @@ gngknight/gngmaiden are based on the version known as "gng" up until last month 
 gng: Ghosts 'n Goblins (World? set 1) [New ROM discovered a month ago under the capsom mask name]
 gnga: Ghosts 'n Goblins (World? set 2) [The one gngknight/gngmaiden are based on]
 gngb: Ghosts 'n Goblins (World? set 3)
+gngc: Ghosts 'n Goblins (World? set 4)
 makaimur: Makaimura (Japan)
+makaimurb: Makaimura (Japan revision B)
+makaimurc: Makaimura (Japan revision C)
+makaimurg: Makaimura (Japan revision G)
 ================================================================================
 			Knight Artoria Edition
 ================================================================================
-gngknight: Ghosts 'n Goblins - Maiden Artoria Edition
-makknight: Ghosts 'n Goblins - Maiden Artoria Edition
+gngknight: Ghosts 'n Goblins - Knight Artoria Edition (World? set 2)
+gngknightnew: Ghosts 'n Goblins - Knight Artoria Edition (World? set 1)
+gngknightb: Ghosts 'n Goblins - Knight Artoria Edition (World? set 3)
+gngknightc: Ghosts 'n Goblins - Knight Artoria Edition (World? set 4)
+gngknightt: Ghosts 'n Goblins - Knight Artoria Edition (US)
+makknight: Makaimura - Knight Artoria Edition (Japan)
+makknightb: Makaimura - Knight Artoria Edition (Japan revision B)
+makknightc: Makaimura - Knight Artoria Edition (Japan revision C)
+makknightg: Makaimura - Knight Artoria Edition (Japan revision G)
 ================================================================================
 			Maiden Artoria Edition
 ================================================================================
-gngmaiden: Ghosts 'n Goblins - Maiden Artoria Edition
-makmaiden: Ghosts 'n Goblins - Maiden Artoria Edition
-
+gngmaiden: Ghosts 'n Goblins - Maiden Artoria Edition (World? set 2)
+gngmaidennew: Ghosts 'n Goblins - Maiden Artoria Edition (World? set 1)
+gngmaidenb: Ghosts 'n Goblins - Maiden Artoria Edition (World? set 3)
+gngmaidenc: Ghosts 'n Goblins - Maiden Artoria Edition (World? set 4)
+gngmaident: Ghosts 'n Goblins - Maiden Artoria Edition (US)
+makmaiden: Makaimura - Maiden Artoria Edition (Japan)
+makmaidenb: Makaimura - Maiden Artoria Edition (Japan revision B)
+makmaidenc: Makaimura - Maiden Artoria Edition (Japan revision C)
+makmaideng: Makaimura - Maiden Artoria Edition (Japan revision G)
 ================================================================================
 			Patching Instructions
 ================================================================================
@@ -66,17 +84,27 @@ HOW TO USE THE .BAT FILES
 
 2. Patch
    - "2. patch_roms.bat" — choose one:
-		1. Patch gngmaiden   [Ghosts'n Goblins - Maiden Artoria Edition (World? set 2)] [Supported by FB Neo]
-		2. Patch gngknight   [Ghosts'n Goblins - Knight Artoria Edition (World? set 2)] [Supported by FB Neo]
-		3. Patch makmaiden   (Makaimura - Maiden Artoria Edition) [Supported by FB Neo]
-		4. Patch makknight   (Makaimura - Knight Artoria Edition) [Supported by FB Neo]
-		5. Patch gngmaidennew (Ghosts'n Goblins - Maiden Artoria Edition (World? set 1)] [Requires Romdata]
-		6. Patch gngknightnew (Ghosts'n Goblins - Knight Artoria Edition (World? set 1)] [Requires Romdata]
-		7. Patch gngmaidenb  [Ghosts'n Goblins - Maiden Artoria Edition (World? set 3)] [Requires Romdata]
-		8. Patch gngknightb  (Ghosts'n Goblins - Knight Artoria Edition (World? set 3)] [Requires Romdata]
-		9. Patch all
-		10. Exit
-   Patched ROMs go into: gngmaiden, gngknight, makmaiden, makknight respectively.
+	1. Patch gngmaiden    [Ghosts'n Goblins - Maiden Artoria Edition (World? set 2)] [Supported by FB Neo]
+	2. Patch gngknight    [Ghosts'n Goblins - Knight Artoria Edition (World? set 2)] [Supported by FB Neo]
+	3. Patch gngmaidennew (Ghosts'n Goblins - Maiden Artoria Edition (World? set 1)]
+	4. Patch gngknightnew (Ghosts'n Goblins - Knight Artoria Edition (World? set 1)]
+	5. Patch gngmaidenb   [Ghosts'n Goblins - Maiden Artoria Edition (World? set 3)]
+	6. Patch gngknightb   (Ghosts'n Goblins - Knight Artoria Edition (World? set 3)]
+	7. Patch gngmaidenc   [Ghosts'n Goblins - Maiden Artoria Edition (World? set 4)]
+	8. Patch gngknightc   (Ghosts'n Goblins - Knight Artoria Edition (World? set 4)]
+	9. Patch gngmaident   [Ghosts'n Goblins - Maiden Artoria Edition (US)]
+	10. Patch gngknightt   (Ghosts'n Goblins - Knight Artoria Edition (US)]
+	11. Patch makmaiden    (Makaimura - Maiden Artoria Edition) [Supported by FB Neo]
+	12. Patch makknight    (Makaimura - Knight Artoria Edition) [Supported by FB Neo]
+	13. Patch makmaidenb   [Makaimura - Maiden Artoria Edition (Japan revision B)]
+	14. Patch makknightb   [Makaimura - Knight Artoria Edition (Japan revision B)]
+	15. Patch makmaidenc   [Makaimura - Maiden Artoria Edition (Japan revision C)]
+	16. Patch makknightc   [Makaimura - Knight Artoria Edition (Japan revision C)]
+	17. Patch makmaideng   [Makaimura - Maiden Artoria Edition (Japan revision G)]
+	18. Patch makknightg   [Makaimura - Knight Artoria Edition (Japan revision G)]
+	19. Patch all
+	20. Exit
+Patched ROMs go into: gngmaiden, gngknight, makmaiden, makknight respectively.
 These 4 folders/romsets are supported by FinalBurn Neo and its libretro core.
 
 Requirements: flips.exe in this folder.

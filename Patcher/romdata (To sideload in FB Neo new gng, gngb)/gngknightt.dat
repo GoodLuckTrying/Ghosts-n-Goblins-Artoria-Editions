@@ -1,0 +1,33 @@
+// RomData template for FinalBurn Neo
+
+// The *** in the ZipName field cannot be empty and cannot be duplicated with DrvName
+ZipName: gngknightt
+DrvName: gngt
+FullName: "Ghosts'n Goblins - Knight Artoria Edition (US)"
+
+// Name		Len		Crc32		Type
+"mmt04dknight.10n",	0x00004000,	0x93de0d39,	0x01100000
+"mmt03d.8n",	0x00008000,	0xfb040b42,	0x01100000
+"mmt05dknight.13n",	0x00008000,	0xe7f6ec0b,	0x01100000
+"mm02.14h",	0x00008000,	0x615f5b6f,	0x01100000
+"mm01knight.11e",	0x00004000,	0xc12dd3e3,	0x00200000
+"mm11.3e",	0x00004000,	0xddd56fa9,	0x00200000
+"mm10.1e",	0x00004000,	0x7302529d,	0x00200000
+"mm09.3c",	0x00004000,	0x20035bda,	0x00200000
+"mm08.1c",	0x00004000,	0xf12ba271,	0x00200000
+"mm07.3b",	0x00004000,	0xe525207d,	0x00200000
+"mm06.1b",	0x00004000,	0x2d77e9b2,	0x00200000
+"mm17knight.4n",	0x00004000,	0xa0713571,	0x00200000
+"mm16knight.3n",	0x00004000,	0x5b0a5995,	0x00200000
+"mm15knight.1n",	0x00004000,	0x4b9933df,	0x00200000
+"mm14knight.4l",	0x00004000,	0x01d9a306,	0x00200000
+"mm13knight.3l",	0x00004000,	0x75211c8b,	0x00200000
+"mm12knight.1l",	0x00004000,	0x7c6e8878,	0x00200000
+"m-02.14k",	0x00000100,	0x0eaf5158,	0x08200000
+"m-01.2e",	0x00000100,	0x4a1285a4,	0x08200000
+
+
+
+
+
+

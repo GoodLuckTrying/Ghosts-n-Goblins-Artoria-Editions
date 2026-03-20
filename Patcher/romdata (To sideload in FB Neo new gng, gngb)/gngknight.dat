@@ -8,7 +8,7 @@ FullName: "Ghosts'n Goblins - Knight Artoria Edition (World? set 1)"
 // Name		Len		Crc32		Type
 "mjg_04knight.10n",	0x00004000,	0x909a6024,	0x01100000
 "mjg_03.8n",	0x00008000,	0x9e01c65e,	0x01100000
-"mjg_05knight.12n",	0x00008000,	0xcf8a073e,	0x01100000
+"mjg_05knight.12n",	0x00008000,	0xca671053,	0x01100000
 "capsom_m5m23256p_p_62410p_mjg_02.14h",	0x00008000,	0x615f5b6f,	0x01100000
 "capsom_m5m23256p_p_616105_mjg_01k.11e",	0x00008000,	0xb1c81db0,	0x00200000
 "capsom_m5m23256p_p_616105_mmg_08.3e",	0x00008000,	0xc09a716f,	0x00200000

@@ -3,7 +3,11 @@
 
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet('gngmaiden','gngknight','makmaiden','makknight','gngmaidennew','gngknightnew','gngmaidenb','gngknightb')]
+    [ValidateSet(
+        'gngmaiden','gngknight','gngmaidennew','gngknightnew','gngmaidenb','gngknightb',
+        'gngmaidenc','gngknightc','gngmaident','gngknightt',
+        'makmaiden','makknight','makmaidenb','makknightb','makmaidenc','makknightc','makmaideng','makknightg'
+    )]
     [string]$BuildType,
 
     [Parameter(Mandatory=$true)]
@@ -25,14 +29,24 @@ if (-not (Test-Path $csvPath)) {
 # Map build type to CSV section name, source folder, patches folder, output folder, and CSV column indices (1-based)
 # Columns: 1=source, 2=maiden_bps, 3=maiden_out, 4=knight_bps, 5=knight_out
 $config = @{
-    gngmaiden  = @{ SECTION = 'gng';     ROMS_DIR = 'gng';      PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaiden';  BpsCol = 2; OutCol = 3 }
-    gngknight  = @{ SECTION = 'gng';     ROMS_DIR = 'gng';      PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknight';  BpsCol = 4; OutCol = 5 }
-    makmaiden  = @{ SECTION = 'makaimur'; ROMS_DIR = 'makaimur'; PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'makmaiden';  BpsCol = 2; OutCol = 3 }
-    makknight  = @{ SECTION = 'makaimur'; ROMS_DIR = 'makaimur'; PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'makknight';  BpsCol = 4; OutCol = 5 }
+    gngmaiden    = @{ SECTION = 'gng';      ROMS_DIR = 'gng';      PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaiden';    BpsCol = 2; OutCol = 3 }
+    gngknight    = @{ SECTION = 'gng';      ROMS_DIR = 'gng';      PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknight';    BpsCol = 4; OutCol = 5 }
     gngmaidennew = @{ SECTION = 'gngnew';   ROMS_DIR = 'gngnew';   PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidennew'; BpsCol = 2; OutCol = 3 }
     gngknightnew = @{ SECTION = 'gngnew';   ROMS_DIR = 'gngnew';   PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightnew'; BpsCol = 4; OutCol = 5 }
-    gngmaidenb  = @{ SECTION = 'gngb';     ROMS_DIR = 'gngb';     PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidenb';  BpsCol = 2; OutCol = 3 }
-    gngknightb  = @{ SECTION = 'gngb';     ROMS_DIR = 'gngb';     PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightb';  BpsCol = 4; OutCol = 5 }
+    gngmaidenb   = @{ SECTION = 'gngb';     ROMS_DIR = 'gngb';     PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidenb';   BpsCol = 2; OutCol = 3 }
+    gngknightb   = @{ SECTION = 'gngb';     ROMS_DIR = 'gngb';     PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightb';   BpsCol = 4; OutCol = 5 }
+    gngmaidenc   = @{ SECTION = 'gngc';     ROMS_DIR = 'gngc';     PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidenc';   BpsCol = 2; OutCol = 3 }
+    gngknightc   = @{ SECTION = 'gngc';     ROMS_DIR = 'gngc';     PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightc';   BpsCol = 4; OutCol = 5 }
+    gngmaident   = @{ SECTION = 'gngt';     ROMS_DIR = 'gngt';     PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaident';   BpsCol = 2; OutCol = 3 }
+    gngknightt   = @{ SECTION = 'gngt';     ROMS_DIR = 'gngt';     PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightt';   BpsCol = 4; OutCol = 5 }
+    makmaiden    = @{ SECTION = 'makaimur'; ROMS_DIR = 'makaimur'; PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'makmaiden';    BpsCol = 2; OutCol = 3 }
+    makknight    = @{ SECTION = 'makaimur'; ROMS_DIR = 'makaimur'; PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'makknight';    BpsCol = 4; OutCol = 5 }
+    makmaidenb   = @{ SECTION = 'makaimurb'; ROMS_DIR = 'makaimurb'; PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'makmaidenb';  BpsCol = 2; OutCol = 3 }
+    makknightb   = @{ SECTION = 'makaimurb'; ROMS_DIR = 'makaimurb'; PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'makknightb';  BpsCol = 4; OutCol = 5 }
+    makmaidenc   = @{ SECTION = 'makaimurc'; ROMS_DIR = 'makaimurc'; PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'makmaidenc';  BpsCol = 2; OutCol = 3 }
+    makknightc   = @{ SECTION = 'makaimurc'; ROMS_DIR = 'makaimurc'; PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'makknightc';  BpsCol = 4; OutCol = 5 }
+    makmaideng   = @{ SECTION = 'makaimurg'; ROMS_DIR = 'makaimurg'; PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'makmaideng';  BpsCol = 2; OutCol = 3 }
+    makknightg   = @{ SECTION = 'makaimurg'; ROMS_DIR = 'makaimurg'; PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'makknightg';  BpsCol = 4; OutCol = 5 }
 }
 
 $cfg = $config[$BuildType]
@@ -48,7 +62,7 @@ if (-not (Test-Path $patchesDir)) {
     Write-Error "Patches folder not found: $patchesDir"
 }
 
-# Parse CSV: two sections (gng and makaimur)
+# Parse CSV: rows grouped by first-column section (gng, gngnew, gngb, gngc, gngt, makaimur, makaimurb, makaimurc, makaimurg)
 $lines = Get-Content $csvPath
 $sections = @{}
 $currentSection = $null
@@ -66,7 +80,7 @@ foreach ($line in $lines) {
     $cols = @(($line -split ',') | ForEach-Object { $_.Trim() })
     if ($cols.Count -ge 5) {
         $first = $cols[0]
-        if ($first -in @('gng','gng1','makaimur','gngnew','gngb')) {
+        if ($first -in @('gng','gng1','makaimur','gngnew','gngb','gngc','gngt','makaimurb','makaimurc','makaimurg')) {
             if ($currentSection) {
                 $sections[$currentSection] = @($currentRows.ToArray())
                 $currentRows = [System.Collections.ArrayList]@()
@@ -119,7 +133,7 @@ foreach ($row in $rows) {
         continue
     }
 
-    if ([string]::IsNullOrWhiteSpace($bpsFile)) {
+    if ([string]::IsNullOrWhiteSpace($bpsFile) -or $bpsFile -eq '?') {
         Copy-Item -Path $sourcePath -Destination $outputPath -Force
         Write-Host "  Copied: $sourceFile -> $outputFile"
         $copied++
