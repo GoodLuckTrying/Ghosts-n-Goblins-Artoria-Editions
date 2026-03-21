@@ -34,18 +34,18 @@ echo    Layout: Patching Layout.csv
 echo.
 echo Please select an option:
 echo.
-echo   1. Patch gngmaiden    [Ghosts'n Goblins - Maiden Artoria Edition (World? set 2)] [Supported by FB Neo]
-echo   2. Patch gngknight    [Ghosts'n Goblins - Knight Artoria Edition (World? set 2)] [Supported by FB Neo]
-echo   3. Patch gngmaidennew (Ghosts'n Goblins - Maiden Artoria Edition (World? set 1)]
-echo   4. Patch gngknightnew (Ghosts'n Goblins - Knight Artoria Edition (World? set 1)]
+echo   1. Patch gngmaiden    [Ghosts'n Goblins - Maiden Artoria Edition (World? set 1)] **[Supported by FB Neo]**
+echo   2. Patch gngknight    [Ghosts'n Goblins - Knight Artoria Edition (World? set 1)] **[Supported by FB Neo]**
+echo   3. Patch gngmaidena   [Ghosts'n Goblins - Maiden Artoria Edition (World? set 2)]
+echo   4. Patch gngknighta   [Ghosts'n Goblins - Knight Artoria Edition (World? set 2)]
 echo   5. Patch gngmaidenb   [Ghosts'n Goblins - Maiden Artoria Edition (World? set 3)]
-echo   6. Patch gngknightb   (Ghosts'n Goblins - Knight Artoria Edition (World? set 3)]
+echo   6. Patch gngknightb   [Ghosts'n Goblins - Knight Artoria Edition (World? set 3)]
 echo   7. Patch gngmaidenc   [Ghosts'n Goblins - Maiden Artoria Edition (World? set 4)]
-echo   8. Patch gngknightc   (Ghosts'n Goblins - Knight Artoria Edition (World? set 4)]
-echo   9. Patch gngmaident   [Ghosts'n Goblins - Maiden Artoria Edition (USA)]
-echo  10. Patch gngknightt   (Ghosts'n Goblins - Knight Artoria Edition (USA)]
-echo  11. Patch makmaiden    (Makaimura - Maiden Artoria Edition) [Supported by FB Neo]
-echo  12. Patch makknight    (Makaimura - Knight Artoria Edition) [Supported by FB Neo]
+echo   8. Patch gngknightc   [Ghosts'n Goblins - Knight Artoria Edition (World? set 4)]
+echo   9. Patch gngmaident   [Ghosts'n Goblins - Maiden Artoria Edition (US)]
+echo  10. Patch gngknightt   [Ghosts'n Goblins - Knight Artoria Edition (US)]
+echo  11. Patch makmaiden    [Makaimura - Maiden Artoria Edition (Japan)] **[Supported by FB Neo]**
+echo  12. Patch makknight    [Makaimura - Knight Artoria Edition (Japan)] **[Supported by FB Neo]**
 echo  13. Patch makmaidenb   [Makaimura - Maiden Artoria Edition (Japan revision B)]
 echo  14. Patch makknightb   [Makaimura - Knight Artoria Edition (Japan revision B)]
 echo  15. Patch makmaidenc   [Makaimura - Maiden Artoria Edition (Japan revision C)]
@@ -59,8 +59,8 @@ set /p "choice=Enter your choice (1-20): "
 
 if "%choice%"=="1" ( set "BUILD=gngmaiden" & goto :DoPatch )
 if "%choice%"=="2" ( set "BUILD=gngknight" & goto :DoPatch )
-if "%choice%"=="3" ( set "BUILD=gngmaidennew" & goto :DoPatch )
-if "%choice%"=="4" ( set "BUILD=gngknightnew" & goto :DoPatch )
+if "%choice%"=="3" ( set "BUILD=gngmaidena" & goto :DoPatch )
+if "%choice%"=="4" ( set "BUILD=gngknighta" & goto :DoPatch )
 if "%choice%"=="5" ( set "BUILD=gngmaidenb" & goto :DoPatch )
 if "%choice%"=="6" ( set "BUILD=gngknightb" & goto :DoPatch )
 if "%choice%"=="7" ( set "BUILD=gngmaidenc" & goto :DoPatch )
@@ -113,12 +113,12 @@ echo --- 2/18 gngknight ---
 powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%\Apply-PatchLayout.ps1" -BuildType "gngknight" -ScriptDir "%SCRIPT_DIR%"
 if !errorlevel! neq 0 set "ANY_ERR=1"
 echo.
-echo --- 3/18 gngmaidennew ---
-powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%\Apply-PatchLayout.ps1" -BuildType "gngmaidennew" -ScriptDir "%SCRIPT_DIR%"
+echo --- 3/18 gngmaidena ---
+powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%\Apply-PatchLayout.ps1" -BuildType "gngmaidena" -ScriptDir "%SCRIPT_DIR%"
 if !errorlevel! neq 0 set "ANY_ERR=1"
 echo.
-echo --- 4/18 gngknightnew ---
-powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%\Apply-PatchLayout.ps1" -BuildType "gngknightnew" -ScriptDir "%SCRIPT_DIR%"
+echo --- 4/18 gngknighta ---
+powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%\Apply-PatchLayout.ps1" -BuildType "gngknighta" -ScriptDir "%SCRIPT_DIR%"
 if !errorlevel! neq 0 set "ANY_ERR=1"
 echo.
 echo --- 5/18 gngmaidenb ---

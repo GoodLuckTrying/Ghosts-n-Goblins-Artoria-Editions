@@ -18,7 +18,7 @@ echo "{0:x8}" -f [uint32]$result
 
 echo ==================== ROMSET VERIFICATION ====================
 echo.
-set "ROM_DIR=%~dp0gngnew"
+set "ROM_DIR=%~dp0gnga"
 echo Verifying files in: %ROM_DIR%
 echo.
 

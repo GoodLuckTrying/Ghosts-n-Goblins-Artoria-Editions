@@ -4,7 +4,7 @@
 param(
     [Parameter(Mandatory=$true)]
     [ValidateSet(
-        'gngmaiden','gngknight','gngmaidennew','gngknightnew','gngmaidenb','gngknightb',
+        'gngmaiden','gngknight','gngmaidena','gngknighta','gngmaidenb','gngknightb',
         'gngmaidenc','gngknightc','gngmaident','gngknightt',
         'makmaiden','makknight','makmaidenb','makknightb','makmaidenc','makknightc','makmaideng','makknightg'
     )]
@@ -31,8 +31,8 @@ if (-not (Test-Path $csvPath)) {
 $config = @{
     gngmaiden    = @{ SECTION = 'gng';      ROMS_DIR = 'gng';      PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaiden';    BpsCol = 2; OutCol = 3 }
     gngknight    = @{ SECTION = 'gng';      ROMS_DIR = 'gng';      PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknight';    BpsCol = 4; OutCol = 5 }
-    gngmaidennew = @{ SECTION = 'gngnew';   ROMS_DIR = 'gngnew';   PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidennew'; BpsCol = 2; OutCol = 3 }
-    gngknightnew = @{ SECTION = 'gngnew';   ROMS_DIR = 'gngnew';   PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightnew'; BpsCol = 4; OutCol = 5 }
+    gngmaidena   = @{ SECTION = 'gnga';     ROMS_DIR = 'gnga';    PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidena';   BpsCol = 2; OutCol = 3 }
+    gngknighta   = @{ SECTION = 'gnga';     ROMS_DIR = 'gnga';    PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknighta';   BpsCol = 4; OutCol = 5 }
     gngmaidenb   = @{ SECTION = 'gngb';     ROMS_DIR = 'gngb';     PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidenb';   BpsCol = 2; OutCol = 3 }
     gngknightb   = @{ SECTION = 'gngb';     ROMS_DIR = 'gngb';     PATCHES_DIR = 'patches\knight_artoria'; OUTPUT_DIR = 'gngknightb';   BpsCol = 4; OutCol = 5 }
     gngmaidenc   = @{ SECTION = 'gngc';     ROMS_DIR = 'gngc';     PATCHES_DIR = 'patches\maiden_artoria'; OUTPUT_DIR = 'gngmaidenc';   BpsCol = 2; OutCol = 3 }
@@ -62,7 +62,7 @@ if (-not (Test-Path $patchesDir)) {
     Write-Error "Patches folder not found: $patchesDir"
 }
 
-# Parse CSV: rows grouped by first-column section (gng, gngnew, gngb, gngc, gngt, makaimur, makaimurb, makaimurc, makaimurg)
+# Parse CSV: rows grouped by first-column section (gng, gnga, gngb, gngc, gngt, makaimur, makaimurb, makaimurc, makaimurg)
 $lines = Get-Content $csvPath
 $sections = @{}
 $currentSection = $null
@@ -80,7 +80,7 @@ foreach ($line in $lines) {
     $cols = @(($line -split ',') | ForEach-Object { $_.Trim() })
     if ($cols.Count -ge 5) {
         $first = $cols[0]
-        if ($first -in @('gng','gng1','makaimur','gngnew','gngb','gngc','gngt','makaimurb','makaimurc','makaimurg')) {
+        if ($first -in @('gng','gng1','makaimur','gnga','gngb','gngc','gngt','makaimurb','makaimurc','makaimurg')) {
             if ($currentSection) {
                 $sections[$currentSection] = @($currentRows.ToArray())
                 $currentRows = [System.Collections.ArrayList]@()

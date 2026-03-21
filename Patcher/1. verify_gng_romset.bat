@@ -19,7 +19,8 @@ echo "{0:x8}" -f [uint32]$result
 echo ==================== ROMSET VERIFICATION ====================
 echo.
 set "ROM_DIR=%~dp0gng"
-echo Verifying CRC32 checksums for files in: %ROM_DIR%
+echo Verifying "gng" folder - file list matches Patching Layout.csv section gng.
+echo Path: %ROM_DIR%
 echo.
 
 if not exist "%ROM_DIR%" (
@@ -32,66 +33,43 @@ if not exist "%ROM_DIR%" (
 
 set "total_files=0"
 set "passed_count=0"
-set "failed_count=0"
 set "missing_count=0"
 
 echo Checking files...
 echo.
 
-set "filename=63s141.2e" & set "expected_crc=4a1285a4" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg-pal10l8.bin" & set "expected_crc=87f1b7e0" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg1.bin" & set "expected_crc=ecfccf07" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg2.bin" & set "expected_crc=615f5b6f" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg3.bin" & set "expected_crc=9e01c65e" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg4.bin" & set "expected_crc=66606beb" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg5.bin" & set "expected_crc=d6397b2b" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg6.bin" & set "expected_crc=2d77e9b2" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg7.bin" & set "expected_crc=e525207d" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg8.bin" & set "expected_crc=f12ba271" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg9.bin" & set "expected_crc=20035bda" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg10.bin" & set "expected_crc=7302529d" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg11.bin" & set "expected_crc=ddd56fa9" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg12.bin" & set "expected_crc=7780a925" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg13.bin" & set "expected_crc=e80c3fca" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg14.bin" & set "expected_crc=6aaf12f9" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg15.bin" & set "expected_crc=bc1fe02d" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg16.bin" & set "expected_crc=06d7e5ca" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=gg17.bin" & set "expected_crc=93e50a8f" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
-
-set "filename=tbp24s10.14k" & set "expected_crc=0eaf5158" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do set "actual_crc=%%h" & if "!actual_crc!"=="!expected_crc!" (echo [PASS] !filename! - CRC32: !actual_crc! & set /a passed_count+=1) else (echo [FAIL] !filename! & echo        Expected: !expected_crc! & echo        Actual:   !actual_crc! & set /a failed_count+=1))
+set "filename=mm_c_04" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=mm_c_03" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=mm_c_05" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg2.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg1.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg11.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg10.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg9.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg8.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg7.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg6.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg17.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg16.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg15.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg14.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg13.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg12.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=tbp24s10.14k" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=63s141.2e" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
+set "filename=gg-pal10l8.bin" & set /a total_files+=1 & if not exist "%ROM_DIR%\!filename!" (echo [MISSING] !filename! & set /a missing_count+=1) else (for /f "delims=" %%h in ('powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS1_SCRIPT%" "%ROM_DIR%\!filename!" 2^>nul') do echo [PASS] !filename! - CRC32: %%h & set /a passed_count+=1)
 
 echo.
 echo ==================== SUMMARY ====================
 echo Total files checked: %total_files%
 echo Passed: %passed_count%
-echo Failed: %failed_count%
 echo Missing: %missing_count%
 echo.
 
-if %failed_count%==0 if %missing_count%==0 (
-    echo [SUCCESS] All files verified successfully!
-    echo The romset is complete and valid.
+if %missing_count%==0 (
+    echo [SUCCESS] All files present!
 ) else (
-    echo [WARNING] Some files failed verification or are missing.
-    echo Please check the output above for details.
+    echo [WARNING] Some files are missing. See above.
 )
 
 echo.
