@@ -2,7 +2,7 @@
 
 Arcade hack for **Ghosts'n Goblins** / **Makaimura** that replaces Arthur with **Artoria** in two variants: **Maiden Edition** and **Knight Edition**.
 
-- 21/3/2026: Hack's main 4 sets are supported by [FB Neo](https://github.com/finalburnneo/FBNeoFB Neo)! Rest of the sets can be loaded through romdata.
+- 21/3/2026: Hack's main 4 sets are supported by [FB Neo](https://github.com/finalburnneo/FBNeo)! Rest of the sets can be loaded through romdata.
 - 22/3/2026: Full hack is now supported by [HBMame](https://github.com/Robbbert/hbmame)!
 **v1.3** · by [GoodLuckTrying](https://github.com/GoodLuckTrying) & [Poody](https://twitter.com/hetagaki_poody)
 
